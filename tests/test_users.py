@@ -179,7 +179,6 @@ def _test_user_info_displayed(
         profile_user: Model, profile_user_content: str, printed_url: str
 ) -> None:
     if profile_user.first_name not in profile_user_content:
-        print(repr(profile_user.get_full_name()))
         raise AssertionError(
             f"Убедитесь, что на странице `{printed_url}` отображается имя"
             " пользователя."
