@@ -22,7 +22,9 @@ from django.conf.urls.static import static
 from django.conf import settings
 
 urlpatterns = [
-    path('auth/login/', views.LoginView.as_view(template_name='registration/login.html'), name='login'),
+    path('auth/login/',
+    views.LoginView.as_view(template_name='registration/login.html'),
+    name='login'),
     path(
         'auth/registration/',
         CreateView.as_view(
@@ -35,17 +37,20 @@ urlpatterns = [
     path('auth/', include('django.contrib.auth.urls')),
 
     path("", include('blog.urls', namespace='blog')),
+
     path("posts/", include('blog.urls', namespace='blog_posts')),
+
     path('category/', include('blog.urls', namespace='blog_category')),
+
     path('accounts/profile/', include('blog.urls', namespace='blog_profile')),
-    
+
     path('pages/', include('pages.urls', namespace='pages')),
 
     path('admin/', admin.site.urls),
 
     
     
-] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT) 
+] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
 
 handler404 = 'pages.views.page_not_found'
 handler500 = 'pages.views.error_500'

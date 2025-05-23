@@ -56,7 +56,7 @@ MIDDLEWARE = [
 
 ROOT_URLCONF = 'blogicum.urls'
 BASE_DIR = Path(__file__).resolve().parent.parent
-TEMPLATES_DIR = BASE_DIR / "templates" 
+TEMPLATES_DIR = BASE_DIR / "templates"
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
@@ -75,7 +75,7 @@ TEMPLATES = [
 
 WSGI_APPLICATION = 'blogicum.wsgi.application'
 
-CSRF_FAILURE_VIEW = 'pages.views.csrf_failure' 
+CSRF_FAILURE_VIEW = 'pages.views.csrf_failure'
 
 # Database
 # https://docs.djangoproject.com/en/3.2/ref/settings/#databases

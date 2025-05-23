@@ -91,15 +91,19 @@ class Post(BaseModel):
         blank=False,
         null=True
     )
-    image = models.ImageField(verbose_name='Изображение', upload_to='post_images', blank=True)
+    image = models.ImageField(verbose_name='Изображение',
+    upload_to='post_images',
+    blank=True)
     
-
     class Meta:
         verbose_name = 'публикация'
         verbose_name_plural = 'Публикации'
 
+
 class Comment(models.Model):
-    post = models.ForeignKey(Post, on_delete=models.CASCADE, related_name='comments')
+    post = models.ForeignKey(Post,
+    on_delete=models.CASCADE,
+    related_name='comments')
     author = models.ForeignKey(User, on_delete=models.CASCADE)
     text = models.TextField(verbose_name='Комментарий')
     created_at = models.DateTimeField(auto_now_add=True)

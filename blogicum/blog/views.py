@@ -85,7 +85,8 @@ def profile(request, username):
     if request.user != profile:
         posts = posts.filter(is_published=True)
 
-    posts = posts.annotate(comment_count=Count('comments')).order_by('-pub_date')
+    posts = posts.annotate(comment_count=Count('comments')
+    ).order_by('-pub_date')
 
     paginator = Paginator(posts, 10)
     page_number = request.GET.get('page')
