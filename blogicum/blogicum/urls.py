@@ -22,9 +22,12 @@ from django.conf.urls.static import static
 from django.conf import settings
 
 urlpatterns = [
-    path('auth/login/',
+    path(
+    'auth/login/',
     views.LoginView.as_view(template_name='registration/login.html'),
-    name='login'),
+    name='login',
+),
+
     path(
         'auth/registration/',
         CreateView.as_view(
@@ -48,7 +51,6 @@ urlpatterns = [
 
     path('admin/', admin.site.urls),
 
-    
     
 ] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
 

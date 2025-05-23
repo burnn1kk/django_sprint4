@@ -91,9 +91,11 @@ class Post(BaseModel):
         blank=False,
         null=True
     )
-    image = models.ImageField(verbose_name='Изображение',
+    image = models.ImageField(
+    verbose_name='Изображение',
     upload_to='post_images',
-    blank=True)
+    blank=True
+    )
     
     class Meta:
         verbose_name = 'публикация'
@@ -101,13 +103,14 @@ class Post(BaseModel):
 
 
 class Comment(models.Model):
-    post = models.ForeignKey(Post,
-    on_delete=models.CASCADE,
-    related_name='comments')
-    author = models.ForeignKey(User, on_delete=models.CASCADE)
+    post = models.ForeignKey(
+        Post,
+        on_delete=models.CASCADE,
+        related_name='comments'
+    )
+    author = models.ForeignKey(
+        User,
+        on_delete=models.CASCADE
+    )
     text = models.TextField(verbose_name='Комментарий')
     created_at = models.DateTimeField(auto_now_add=True)
-
-    class Meta:
-        verbose_name = 'Комментарий'
-        verbose_name_plural = 'Комментарии'
