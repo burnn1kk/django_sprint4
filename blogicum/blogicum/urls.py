@@ -23,10 +23,10 @@ from django.conf import settings
 
 urlpatterns = [
     path(
-    'auth/login/',
-    views.LoginView.as_view(template_name='registration/login.html'),
-    name='login',
-),
+        'auth/login/',
+        views.LoginView.as_view(template_name='registration/login.html'),
+        name='login',
+    ),
 
     path(
         'auth/registration/',
@@ -37,6 +37,7 @@ urlpatterns = [
         ),
         name='registration',
     ),
+
     path('auth/', include('django.contrib.auth.urls')),
 
     path("", include('blog.urls', namespace='blog')),
@@ -50,9 +51,8 @@ urlpatterns = [
     path('pages/', include('pages.urls', namespace='pages')),
 
     path('admin/', admin.site.urls),
-
-    
 ] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
 
 handler404 = 'pages.views.page_not_found'
 handler500 = 'pages.views.error_500'
+
