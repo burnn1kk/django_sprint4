@@ -2,7 +2,7 @@ from django.shortcuts import render, get_object_or_404, redirect
 from django.utils import timezone
 from django.contrib.auth.models import User
 from django.contrib.auth.decorators import login_required
-from django.http import HttpRequest, Http404
+from django.http import Http404
 from django.core.paginator import Paginator
 from django.db.models import Count
 
@@ -74,7 +74,6 @@ def category_posts(request, category_slug):
         'category': category,
         'page_obj': page_obj,
     }
-
     return render(request, template_name, context)
 
 
@@ -141,7 +140,7 @@ def create_post(request):
             post = form.save(commit=False)
             post.author = request.user
             post.save()
-            return redirect('blog_profile:profile', username=request.user.username)
+            return redirect('blog:profile', username=request.user.username)
     else:
         form = PostForm()
 
