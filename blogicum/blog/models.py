@@ -92,9 +92,9 @@ class Post(BaseModel):
         null=True
     )
     image = models.ImageField(
-    verbose_name='Изображение',
-    upload_to='post_images',
-    blank=True,
+        verbose_name='Изображение',
+        upload_to='post_images',
+        blank=True,
     )
 
     class Meta:

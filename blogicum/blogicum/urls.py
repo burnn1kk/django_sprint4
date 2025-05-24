@@ -55,4 +55,3 @@ urlpatterns = [
 
 handler404 = 'pages.views.page_not_found'
 handler500 = 'pages.views.error_500'
-
